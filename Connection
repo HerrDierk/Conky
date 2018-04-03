@@ -1,0 +1,50 @@
+use_xft yes
+xftfont 123:size=10
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour 000000
+own_window_argb_visual no
+own_window_argb_value 0
+
+double_buffer yes
+#minimum_size 1550 1000
+#maximum_width 1550
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color white
+default_shade_color red
+default_outline_color green
+alignment top_left
+gap_x 100
+gap_y 40
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+
+TEXT
+${color 35805f}${font :BOLD:}CONNECTIONS IN-OUT ${offset 9}$color${tcp_portmon 1 32767 count}  /  ${tcp_portmon 32768 61000 count}${font}
+
+${color a497a0}${font comic:pixelsize=12}
+${offset 12}${tcp_portmon 1 65535 rhost 0}${goto 500}${tcp_portmon 1 65535 rip 0}${goto 700}${tcp_portmon 1 65535 rport 0}${goto 800}${tcp_portmon 1 65535 rservice 0}${goto 900}${tcp_portmon 1 65535 lport 0}
+${offset 12}${tcp_portmon 1 65535 rhost 1}${goto 500}${tcp_portmon 1 65535 rip 1}${goto 700}${tcp_portmon 1 65535 rport 1}${goto 800}${tcp_portmon 1 65535 rservice 1}${goto 900}${tcp_portmon 1 65535 lport 1}
+${offset 12}${tcp_portmon 1 65535 rhost 2}${goto 500}${tcp_portmon 1 65535 rip 2}${goto 700}${tcp_portmon 1 65535 rport 2}${goto 800}${tcp_portmon 1 65535 rservice 2}${goto 900}${tcp_portmon 1 65535 lport 2}
+${offset 12}${tcp_portmon 1 65535 rhost 3}${goto 500}${tcp_portmon 1 65535 rip 3}${goto 700}${tcp_portmon 1 65535 rport 3}${goto 800}${tcp_portmon 1 65535 rservice 3}${goto 900}${tcp_portmon 1 65535 lport 3}
+${offset 12}${tcp_portmon 1 65535 rhost 4}${goto 500}${tcp_portmon 1 65535 rip 4}${goto 700}${tcp_portmon 1 65535 rport 4}${goto 800}${tcp_portmon 1 65535 rservice 4}${goto 900}${tcp_portmon 1 65535 lport 4}
+${offset 12}${tcp_portmon 1 65535 rhost 5}${goto 500}${tcp_portmon 1 65535 rip 5}${goto 700}${tcp_portmon 1 65535 rport 5}${goto 800}${tcp_portmon 1 65535 rservice 5}${goto 900}${tcp_portmon 1 65535 lport 5}
+${offset 12}${tcp_portmon 1 65535 rhost 6}${goto 500}${tcp_portmon 1 65535 rip 6}${goto 700}${tcp_portmon 1 65535 rport 6}${goto 800}${tcp_portmon 1 65535 rservice 6}${goto 900}${tcp_portmon 1 65535 lport 6}
+${offset 12}${tcp_portmon 1 65535 rhost 7}${goto 500}${tcp_portmon 1 65535 rip 7}${goto 700}${tcp_portmon 1 65535 rport 7}${goto 800}${tcp_portmon 1 65535 rservice 7}${goto 900}${tcp_portmon 1 65535 lport 7}
+${offset 12}${tcp_portmon 1 65535 rhost 8}${goto 500}${tcp_portmon 1 65535 rip 8}${goto 700}${tcp_portmon 1 65535 rport 8}${goto 800}${tcp_portmon 1 65535 rservice 8}${goto 900}${tcp_portmon 1 65535 lport 8}
+${offset 12}${tcp_portmon 1 65535 rhost 9}${goto 500}${tcp_portmon 1 65535 rip 9}${goto 700}${tcp_portmon 1 65535 rport 9}${goto 800}${tcp_portmon 1 65535 rservice 9}${goto 900}${tcp_portmon 1 65535 lport 9}
+
+

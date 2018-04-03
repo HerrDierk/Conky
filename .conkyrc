@@ -1,0 +1,89 @@
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+if_up_strictness link
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Ubuntu:size=12
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type conky
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment top_right
+gap_x 40
+gap_y 40
+minimum_size 250 600
+maximum_width 250
+
+default_bar_size 100 8
+
+draw_shades no
+
+default_color cccccc
+
+color0 darkgrey
+color1 77507b
+color2 white
+color3 35805f
+color4 4e4141
+
+TEXT
+${color3}${font :BOLD:}SYSTEM $hr${color}${font}
+${goto 32}${color0}Kernel: ${alignr}${color2}${kernel}${color}
+
+${goto 32}${color0}CPU : ${color1}${goto 100}${font :BOLD:}${cpu cpu0}%${font}${color}
+${goto 32}${color0}Temp : ${color1}${goto 100}${font :BOLD:}${acpitemp} °C${color}${font}
+${goto 32}${color0}Speed : ${color1}${goto 100}${font :BOLD:}${freq_g cpu0} GHz${font}
+
+${color4}${goto 60}${top name 1}${alignr}${top cpu 1}
+${goto 60}${top name 2}${alignr}${top cpu 2}
+${goto 60}${top name 3}${alignr}${top cpu 3}
+
+${goto 32}${color0}RAM : ${font :BOLD:}${color1}${goto 100}$memperc%${alignr}${mem}${font}
+${goto 32}${color0}Swap : ${goto 100}${color1}${font :BOLD:}${swap}${color0}${color}${font}
+
+${color4}${goto 60}${top_mem name 1}${alignr}${top_mem mem 1}
+${goto 60}${top_mem name 2}${alignr}${top_mem mem 2}
+${goto 60}${top_mem name 3}${alignr}${top_mem mem 3}
+
+${goto 32}${color0}GPU : ${font :BOLD:}${color1}${goto 100}${hwmon 2 temp 1} °C${color}${font}
+
+${color3}${font :BOLD:}DATA $hr${color}${font}
+
+${goto 32}${color0}System total : ${goto 155}${fs_size /}
+${goto 32}${color0}System used : ${goto 155}${color1}${font :BOLD:}${fs_used /}${color}${font}
+
+${goto 32}${color0}Backup total : ${goto 155}${fs_size /run/media/dierk/Backup}
+${goto 32}${color0}Backup used : ${goto 155}${color1}${font :BOLD:}${fs_used /run/media/dierk/Backup}${font}
+
+${color3}${font :BOLD:}NETWORK $hr${color}${font}
+
+${goto 32}${color0}Up: ${color1}${goto 100}${upspeed wlp3s0}${color}
+${goto 32}${color0}Today: ${color2}${goto 100}${execi 300 vnstat | grep "today" | awk '{print $5 $6}'}${color}
+
+${goto 32}${color0}Down: ${color1}${goto 100}${downspeed wlp3s0}${color}
+${goto 32}${color0}Today: ${color2}${goto 100}${execi 300 vnstat | grep "today" | awk '{print $2 $3}'}
+
+${goto 32}${color0}Signal: ${color1}${goto 100}${wireless_link_qual_perc wlp3s0}%${alignr}
+ 
+${goto 32}${color0}Local IP: ${alignr}${color2}${addr wlp3s0}
+${goto 32}${color0}Public IP: ${alignr}${color2}${execi 60 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}
